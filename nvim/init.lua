@@ -36,3 +36,6 @@ require("config.keymaps")
 
 -- synt
 require("config.lsp")
+
+-- auto pairs on C/C++
+require("config.allman")
