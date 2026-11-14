@@ -3,12 +3,10 @@ return {
         "neovim/nvim-lspconfig",
 
         opts = {
-            -- Disable inline parameter hints
             inlay_hints = {
                 enabled = false,
             },
 
-            -- LSP servers
             servers = {
                 gopls = {
                     settings = {
