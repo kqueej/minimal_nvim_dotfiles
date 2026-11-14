@@ -16,8 +16,7 @@ local function setup_allman(buf)
 
         local before = line:sub(1, col)
         local after = line:sub(col + 1)
-
-        -- Обрабатываем Enter только между парными {}
+            
         if before:sub(-1) == "{" and after:sub(1, 1) == "}" then
             local prefix = before:sub(1, -2)
             local tail = after:sub(2)
@@ -61,7 +60,6 @@ local function setup_allman(buf)
             return
         end
 
-        -- Обычный Enter, если курсор не между {}
         vim.api.nvim_feedkeys(
             vim.api.nvim_replace_termcodes(
                 "<CR>", true, false, true
@@ -83,7 +81,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- На случай, если FileType уже установлен
 if vim.tbl_contains({ "c", "cpp", "cs" }, vim.bo.filetype) then
     setup_allman(0)
 end
