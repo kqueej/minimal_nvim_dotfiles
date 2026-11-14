@@ -1,15 +1,15 @@
-
 return {
     {
         "saghen/blink.cmp",
         version = "*",
+
         dependencies = {
             "rafamadriz/friendly-snippets",
         },
 
         opts = {
             keymap = {
-                preset = "default",
+                preset = "enter",
             },
 
             appearance = {
@@ -17,9 +17,36 @@ return {
             },
 
             completion = {
+                list = {
+                    selection = {
+                        preselect = true,
+                        auto_insert = false,
+                    },
+                },
+
+                menu = {
+                    border = "rounded",
+                    max_height = 8,
+                    scrollbar = false,
+
+                    draw = {
+                        padding = 1,
+                        gap = 1,
+
+                        columns = {
+                            { "label", "label_description", gap = 1 },
+                            { "kind_icon", "kind" },
+                        },
+                    },
+                },
+
                 documentation = {
                     auto_show = true,
-                    auto_show_delay_ms = 500,
+                    auto_show_delay_ms = 400,
+
+                    window = {
+                        border = "rounded",
+                    },
                 },
             },
 

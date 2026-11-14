@@ -2,6 +2,7 @@ return {
     {
         "vyfor/cord.nvim",
         build = ":Cord update",
+
         opts = {
             editor = {
                 client = "neovim",
@@ -20,8 +21,9 @@ return {
 
             idle = {
                 enabled = true,
-                timeout = 0,
+                timeout = 3000000000,
                 details = "shitting",
+            },
 
             text = {
                 workspace = "Working on ${workspace}",
@@ -32,7 +34,9 @@ return {
                 terminal = "Uhh..emmm...",
                 dashboard = "Initializing CookieBotOS",
                 default = "Operating in Neovim",
-            },            },
+            },
+
+            variables = true,
         },
     },
 }

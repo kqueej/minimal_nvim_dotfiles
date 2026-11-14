@@ -1,35 +1,29 @@
-
 return {
     {
         "neovim/nvim-lspconfig",
 
-        dependencies = {
-            "mason-org/mason.nvim",
-            "mason-org/mason-lspconfig.nvim",
-        },
+        opts = {
+            -- Disable inline parameter hints
+            inlay_hints = {
+                enabled = false,
+            },
 
-        config = function()
-            local is_windows = vim.fn.has("win32") == 1
-
-            if is_windows then
-                require("mason").setup()
-
-                require("mason-lspconfig").setup({
-                    ensure_installed = {
-                        "gopls",
-                        "rust_analyzer",
-                        "basedpyright",
-                        "clangd",
+            -- LSP servers
+            servers = {
+                gopls = {
+                    settings = {
+                        gopls = {
+                            gofumpt = true,
+                            staticcheck = true,
+                        },
                     },
-                })
-            end
+                },
 
-            vim.lsp.enable({
-                "gopls",
-                "rust_analyzer",
-                "basedpyright",
-                "clangd",
-            })
-        end,
+                rust_analyzer = {},
+                basedpyright = {},
+                clangd = {},
+                lua_ls = {},
+            },
+        },
     },
 }
